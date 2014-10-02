@@ -1,7 +1,6 @@
-@(message: String)
+<h1>Welcome to our cool website</h1>
 
-@main("Welcome to Play") {
-
-    @play20.welcome(message, style = "Java")
-
-}
+<form action="@routes.Application.login()" method="POST">
+    <input type="text" name="username">
+    <input type="submit" value="Login">
+</form>

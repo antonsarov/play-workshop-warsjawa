@@ -2,14 +2,30 @@
 
 <!DOCTYPE html>
 
-<html>
+<html ng-app="gitHubJobsMapApp">
     <head>
         <title>@title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <script src="@routes.Assets.at("javascripts/hello.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("lib/angularjs/angular.js")"></script>
+        <script src="@routes.Assets.at("javascripts/app.js")"></script>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
+        <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script src="@routes.Assets.at("lib/angular-leaflet-directive/angular-leaflet-directive.js")"></script>
+        <link rel="stylesheet" href="@routes.Assets.at("lib/bootstrap/css/bootstrap.css")">
     </head>
     <body>
+
+        <div>
+            <form ng-controller="Search">
+                <input type="search" ng-model="query" placeholder="Enter a search term here"/>
+                <input type="submit" ng-click="search()" value="Search"/>
+                <hr>
+                <h1 style="text-align: center">All search results for {{query}}!</h1>
+            </form>
+        </div>
         @content
+
+        <a href="@routes.Application.logout()">Logout</a>
     </body>
 </html>
